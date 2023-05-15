@@ -1,3 +1,10 @@
+This project is a ICO which depends in a previous project NFT-Collection, for each NFT of the collection that you hold, you are eligible for 10 free tokens, the rest of the tokens costs 0.01 Matic / Token.
+
+Smart Contracts are hosted in mumbai
+
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
