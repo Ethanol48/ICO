@@ -5,4 +5,4 @@ Smart Contracts are hosted in the Polygon testnet: Mumbai.
 ICO: 0xB91aC899eF5Be8fd7233105c882967d6DCEb94e5<br>
 NFT-Collection: 0x170615f501120302803320983BDCAd2f4f7034fd
 
-project showcase: ico-ethanol48.vercel.app
+project showcase: https://ico-ethanol48.vercel.app
