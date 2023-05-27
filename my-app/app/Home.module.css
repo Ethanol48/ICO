@@ -5,7 +5,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  font-family: "Courier New", Courier, monospace;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .footer {
@@ -23,10 +23,10 @@
 }
 
 .input {
-  width: 200px;
+  width: 250px;
   height: 100%;
   padding: 1%;
-  margin-bottom: 2%;
+  margin-bottom: 4%;
   box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
   border-radius: 10px;
 }
@@ -44,7 +44,7 @@
 
 .button {
   border-radius: 4px;
-  background-color: blue;
+  background-color: #6C62FF;
   border: none;
   color: #ffffff;
   font-size: 15px;
@@ -53,6 +53,19 @@
   cursor: pointer;
   margin-bottom: 2%;
 }
+
+.tag {
+  border-radius: 4px;
+  background-color: #6C62FF;
+  border: none;
+  color: #ffffff;
+  font-size: 15px;
+  padding: 10px;
+  /* width: 100px; */
+  cursor: pointer;
+  margin-bottom: 20%;
+}
+
 @media (max-width: 1000px) {
   .main {
     width: 100%;

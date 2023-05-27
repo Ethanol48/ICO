@@ -332,7 +332,7 @@ export default function Home() {
       return (
         <div>
           <div className={styles.description}>
-            {tokensToBeClaimed * 10} Tokens can be claimed!
+            You can claim {tokensToBeClaimed * 10} tokens!!
           </div>
           <button className={styles.button} onClick={claimCryptoDevTokens}>
             Claim Tokens
@@ -341,28 +341,63 @@ export default function Home() {
       );
     }
     // If user doesn't have any tokens to claim, show the mint button
-    return (
-      <div style={{ display: "flex-col" }}>
+    
+    if (!isOwner) {
+      return (
         <div>
-          <input
-            type="number"
-            placeholder="Amount of Tokens"
-            // BigNumber.from converts the `e.target.value` to a BigNumber
-            onChange={(e) => setTokenAmount(BigNumber.from(e.target.value))}
-            className={styles.input}
-          />
-        </div>
+          <div>
+            <input
+              type="number"
+              placeholder="Amount of Tokens"
+              // BigNumber.from converts the `e.target.value` to a BigNumber
+              onChange={(e) => setTokenAmount(BigNumber.from(e.target.value))}
+              className={styles.input}
+            />
+          </div>
 
-        <button
-          className={styles.button}
-          disabled={!(tokenAmount > 0)}
-          onClick={() => mintCryptoDevToken(tokenAmount)}
-        >
-          Mint Tokens
-        </button>
-      </div>
-    );
-  };
+          <button
+            className={styles.button}
+            disabled={!(tokenAmount > 0)}
+            onClick={() => mintCryptoDevToken(tokenAmount)}
+          >
+            Mint Tokens
+          </button>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <div>
+            <input
+              type="number"
+              placeholder="Amount of Tokens"
+              // BigNumber.from converts the `e.target.value` to a BigNumber
+              onChange={(e) => setTokenAmount(BigNumber.from(e.target.value))}
+              className={styles.input}
+            />
+          </div>
+
+          <div id="botones" style={{ display: "flex" , width: "250px", justifyContent: "space-between" }}>
+            <button
+              className={styles.button}
+              disabled={!(tokenAmount > 0)}
+              onClick={() => mintCryptoDevToken(tokenAmount)}
+            >
+              Mint Tokens
+            </button>
+              {loading ? <button className={styles.button}>Loading...</button>
+                : <button className={styles.button} onClick={withdrawCoins}>
+                  Withdraw Coins
+                </button>
+              }
+          </div>
+        </div>
+      );
+
+
+    }
+
+  }
 
   return (
     <div>
@@ -389,17 +424,6 @@ export default function Home() {
                 Overall {utils.formatEther(tokensMinted)}/10000 have been minted!!!
               </div>
               {renderButton()}
-              {/* Display additional withdraw button if connected wallet is owner */}
-                {isOwner ? (
-                  <div>
-                  {loading ? <button className={styles.button}>Loading...</button>
-                           : <button className={styles.button} onClick={withdrawCoins}>
-                               Withdraw Coins
-                             </button>
-                  }
-                  </div>
-                  ) : ("")
-                }
             </div>
           ) : (
             <button onClick={connectWallet} className={styles.button}>
@@ -410,11 +434,14 @@ export default function Home() {
         <div>
           <img className={styles.image} src="./0.svg" />
         </div>
+
+      </div>
+      <div style={{textAlign: "center"}}>
+        <a className={styles.tag} href="https://nft-minting-collection.vercel.app" >
+          Mint NFT's to claim free Coins!!
+        </a>
       </div>
 
-      <footer className={styles.footer}>
-        Made with &#10084; by Crypto Devs
-      </footer>
     </div>
   );
 }
